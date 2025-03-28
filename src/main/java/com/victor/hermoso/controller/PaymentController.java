@@ -10,6 +10,6 @@ public class PaymentController
     @PostMapping("/pay")
     public String processPayForm(@RequestParam String title, @RequestParam int quantity, @RequestParam float unitiPrice) 
     {
-        return "resultado";
+        return "payment";
     }
 }
