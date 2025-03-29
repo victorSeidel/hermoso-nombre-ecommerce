@@ -84,11 +84,13 @@ public class Payment
         iten.setQuantity(1);
         iten.setUnityPrice((float) 100.00);
         iten.setPayment(this);
+        iten.setCategoryId(id);
 
         item.setId(String.valueOf(this.iten.getId()));
         item.setTitle(iten.getTitle());
         item.setQuantity(iten.getQuantity());
         item.setUnitPrice(iten.getUnityPrice());
+        item.setCategoryId(String.valueOf(this.iten.getCategoryId()));
     }
 
     private void addItemToPreference(Preference preference, ArrayList<Item> items, Item item) 

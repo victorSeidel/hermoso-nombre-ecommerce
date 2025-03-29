@@ -34,16 +34,21 @@ public class Iten
     private String title;
     private int quantity;
     private float unityPrice;
+    private int categoryId;
 
     @OneToOne(mappedBy = "iten", cascade = CascadeType.ALL)
     private Payment payment;
 
-    public Iten(int id, String title, int quantity, float unityPrice)
+    @OneToOne(mappedBy = "iten", cascade = CascadeType.ALL)
+    private Category category;
+
+    public Iten(int id, String title, int quantity, float unityPrice, int categoryId)
     {
         id         = this.id;
         title      = this.title;
         quantity   = this.quantity;
         unityPrice = this.unityPrice;
+        categoryId = this.categoryId;
     }
 
     public void setPayment(Payment payment)
@@ -54,5 +59,15 @@ public class Iten
     public Payment getPayment()
     {
         return this.payment;
+    }
+
+    public void setCategory(Category category)
+    {
+        this.category = category;
+    }
+
+    public Category getCategory()
+    {
+        return this.category;
     }
 }

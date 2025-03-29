@@ -21,9 +21,10 @@ public class PaymentController
     }
     
     @PostMapping("/generatePaymentLink")
-    public String generatePaymentLink(@RequestParam int itemId, @RequestParam String itemTitle, @RequestParam int itemQuantity, @RequestParam float itemPrice,  Model model) 
+    public String generatePaymentLink(@RequestParam int itemId, @RequestParam String itemTitle, @RequestParam int itemQuantity,
+    @RequestParam float itemPrice, @RequestParam int categoryId, Model model)
     {
-        Iten mainIten = new Iten(itemId, itemTitle, itemQuantity, itemPrice);
+        Iten mainIten = new Iten(itemId, itemTitle, itemQuantity, itemPrice, categoryId);
     
         ArrayList<Iten> itens = new ArrayList<>();
 
