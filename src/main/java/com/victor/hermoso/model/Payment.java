@@ -28,10 +28,10 @@ import com.mercadopago.resources.datastructures.preference.Item;
 @Component
 public class Payment
 {
-    private static final String ACCESS_TOKEN = "SEU_ACCESS_TOKEN_AQUI";
-    private static final String SUCCESS_URL  = "https://www.yoursite.com/paymentSuccess";
-    private static final String FAILURE_URL  = "https://www.yoursite.com/paymentFailure";
-    private static final String PENDING_URL  = "https://www.yoursite.com/paymentPending";
+    private static final String ACCESS_TOKEN = "TEST-8788519022554945-032819-3a38bd8516985e3594279debf95a5fa2-616355816";
+    private static final String SUCCESS_URL  = "http://localhost:8080/paymentSuccess";
+    private static final String FAILURE_URL  = "http://localhost:8080/paymentFailure";
+    private static final String PENDING_URL  = "http://localhost:8080/paymentPending";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,12 +41,15 @@ public class Payment
     @JoinColumn(name = "iten_id", referencedColumnName = "id")
     private Iten iten;
 
-    public String getPaymentLink(Item item, ArrayList<Item> items)
+    public String getPaymentLink(Iten iten, ArrayList<Iten> itens)
     {
         initializeMercadoPagoSDK();
         
         Preference preference = createPreferenceWithBackUrls();
         
+        Item item = new Item();
+        ArrayList<Item> items = new ArrayList<>();
+
         configureItem(item);
         addItemToPreference(preference, items, item);
         

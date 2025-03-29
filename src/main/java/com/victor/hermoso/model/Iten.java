@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
+@AllArgsConstructor
 
 @Component
 public class Iten 
@@ -32,8 +35,16 @@ public class Iten
     private int quantity;
     private float unityPrice;
 
-    @OneToOne(mappedBy = "item", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "iten", cascade = CascadeType.ALL)
     private Payment payment;
+
+    public Iten(int id, String title, int quantity, float unityPrice)
+    {
+        id         = this.id;
+        title      = this.title;
+        quantity   = this.quantity;
+        unityPrice = this.unityPrice;
+    }
 
     public void setPayment(Payment payment)
     {

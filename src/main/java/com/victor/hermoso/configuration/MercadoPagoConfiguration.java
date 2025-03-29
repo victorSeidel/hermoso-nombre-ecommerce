@@ -16,6 +16,12 @@ public class MercadoPagoConfiguration
     @PostConstruct
     public void init() 
     {
+        if (accessToken == null || accessToken.isEmpty()) 
+        {
+            System.out.println("Access token do Mercado Pago não foi configurado!");
+            return;
+        }
+
         MercadoPagoConfig.setAccessToken(accessToken);
     }
 }

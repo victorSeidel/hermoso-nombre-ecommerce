@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Link de Pagamento</title>
+</head>
+<body>
+    <form th:action="@{/generatePaymentLink}" method="post">
+        <div>
+            <label for="itemId">ID do Item:</label>
+            <input type="text" id="itemId" name="itemId" required>
+        </div>
+        
+        <div>
+            <label for="itemTitle">Título:</label>
+            <input type="text" id="itemTitle" name="itemTitle" required>
+        </div>
+        
+        <div>
+            <label for="itemQuantity">Quantidade:</label>
+            <input type="number" id="itemQuantity" name="itemQuantity" required>
+        </div>
+        
+        <div>
+            <label for="itemPrice">Preço Unitário:</label>
+            <input type="number" step="0.01" id="itemPrice" name="itemPrice" required>
+        </div>
+        
+        <button type="submit">Ir para o pagamento</button>
+    </form>
+</body>
+</html>
